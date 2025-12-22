@@ -63,6 +63,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: |
-            ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.repository }}:${{ steps.tag.outputs.TAG_NAME }}
-            ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.repository }}:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
