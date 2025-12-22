@@ -5,10 +5,9 @@ WORKDIR /app
 RUN pip install --no-cache-dir poetry && \
     pip install --no-cache-dir python-dotenv
 
-COPY pyproject.toml poetry.lock ./
-RUN poetry config virtualenvs.create false && \
-    poetry install --no-interaction --no-ansi --only main
+COPY pyproject.toml poetry.lock README.md main.py ./
 
-COPY . .
+RUN poetry install --no-interaction --no-root
+
 
 CMD ["python", "main.py"]
