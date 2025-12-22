@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  quest-bot-redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  quest-bot:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+volumes:
+  redis_data:

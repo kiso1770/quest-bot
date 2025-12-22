@@ -1,0 +1,5 @@
+.env
+.python-version
+.env*
+.venv*
+data*
