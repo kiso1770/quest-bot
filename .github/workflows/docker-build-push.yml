@@ -28,5 +28,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ GITHUB_REPOSITORY }}:${{ steps.tag.outputs.TAG_NAME }}
-            ${{ GITHUB_REPOSITORY }}:latest
+            ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.repository }}:${{ steps.tag.outputs.TAG_NAME }}
+            ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.repository }}:latest
