@@ -28,5 +28,5 @@ jobs:
           context: .
           push: true
           tags: |
-            $GITHUB_REPOSITORY:${{ steps.tag.outputs.TAG_NAME }}
-            $GITHUB_REPOSITORY:latest
+            ${{ GITHUB_REPOSITORY }}:${{ steps.tag.outputs.TAG_NAME }}
+            ${{ GITHUB_REPOSITORY }}:latest
