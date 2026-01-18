@@ -2,12 +2,18 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN pip install --no-cache-dir poetry && \
-    pip install --no-cache-dir python-dotenv
+# Устанавливаем Poetry
+RUN pip install poetry==1.8.2
 
-COPY pyproject.toml poetry.lock README.md main.py ./
+RUN poetry config virtualenvs.create false
 
-RUN poetry install --no-interaction --no-root
 
+COPY pyproject.toml poetry.lock ./
+
+
+RUN poetry install --only=main --no-interaction --no-ansi
+
+# Копируем остальной код
+COPY . .
 
 CMD ["python", "main.py"]

@@ -1,15 +1,10 @@
-[project]
+[tool.poetry]
 name = "quest-bot"
 version = "0.1.0"
 description = "Edventure bot for friends"
-authors = [
-    {name = "Your Name",email = "you@example.com"}
-]
+authors = []
 readme = "README.md"
-requires-python = "^3.11"
-dependencies = [
-    "redis (>=7.1.0,<8.0.0)"
-]
+
 
 
 [build-system]
@@ -19,3 +14,5 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.dependencies]
 python = ">=3.11,<3.15"  # или просто "^3.11"
 aiogram = "^3.23.0"
+redis = ">=7.1.0,<8.0.0"
+dotenv = "^0.9.9"

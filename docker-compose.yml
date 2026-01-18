@@ -3,6 +3,7 @@ version: '3.8'
 services:
   quest-bot-redis:
     image: redis:7-alpine
+    container_name: quest-bot-redis
     ports:
       - "6379:6379"
     volumes:
@@ -10,10 +11,11 @@ services:
 
   quest-bot:
     build: .
+    container_name: quest-bot
     env_file:
       - .env
     depends_on:
-      - redis
+      - quest-bot-redis
     restart: unless-stopped
 
 volumes:
